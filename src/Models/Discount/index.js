@@ -30,7 +30,7 @@ export const Discount = database.define(
       get() {
         const value = this.getDataValue('startDiscount');
         const day = value.getDate();
-        const month = ('0' + (value.getMonth()+1)).slice(-2);
+        const month = ('0' + (value.getMonth() + 1)).slice(-2);
         const year = value.getFullYear();
         return day + '.' + month + '.' + year;
       },
@@ -40,7 +40,7 @@ export const Discount = database.define(
       get() {
         const value = this.getDataValue('endDiscount');
         const day = value.getDate();
-        const month = ('0' + (value.getMonth()+1)).slice(-2);
+        const month = ('0' + (value.getMonth() + 1)).slice(-2);
         const year = value.getFullYear();
         return day + '.' + month + '.' + year;
       },

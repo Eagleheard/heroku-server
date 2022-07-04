@@ -13,7 +13,7 @@ class Game {
       const discounts = await discountModule.getAll();
       if (discounts) {
         await Promise.all(
-          discounts.map(async({ id, gameId, startDiscount, endDiscount }) => {
+          discounts.map(async ({ id, gameId, startDiscount, endDiscount }) => {
             if (new Date(endDiscount).getTime() <= Date.now()) {
               return discountModule.delete(id);
             }

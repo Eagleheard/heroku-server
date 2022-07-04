@@ -17,11 +17,11 @@ export const Comment = database.define(
       type: DataTypes.VIRTUAL,
       get() {
         const value = this.getDataValue('createdAt');
-        const day = ('0' + (value.getDate())).slice(-2);
-        const month = ('0' + (value.getMonth()+1)).slice(-2);
+        const day = ('0' + value.getDate()).slice(-2);
+        const month = ('0' + (value.getMonth() + 1)).slice(-2);
         const year = value.getFullYear();
-        const hours = ('0' + (value.getHours())).slice(-2);
-        const minutes = ('0' + (value.getMinutes())).slice(-2);
+        const hours = ('0' + value.getHours()).slice(-2);
+        const minutes = ('0' + value.getMinutes()).slice(-2);
         return day + '.' + month + '.' + year + ' ' + hours + ':' + minutes;
       },
     },
@@ -29,11 +29,11 @@ export const Comment = database.define(
       type: DataTypes.VIRTUAL,
       get() {
         const value = this.getDataValue('updatedAt');
-        const day = ('0' + (value.getDate())).slice(-2);
-        const month = ('0' + (value.getMonth()+1)).slice(-2);
+        const day = ('0' + value.getDate()).slice(-2);
+        const month = ('0' + (value.getMonth() + 1)).slice(-2);
         const year = value.getFullYear();
-        const hours = ('0' + (value.getHours())).slice(-2);
-        const minutes = ('0' + (value.getMinutes())).slice(-2);
+        const hours = ('0' + value.getHours()).slice(-2);
+        const minutes = ('0' + value.getMinutes()).slice(-2);
         return day + '.' + month + '.' + year + ' ' + hours + ':' + minutes;
       },
     },

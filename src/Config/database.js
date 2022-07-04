@@ -3,9 +3,8 @@ import config from 'dotenv/config';
 
 export let database;
 
-if (process.env.NODE_ENV === "production") {
-  database = new Sequelize(
-    process.env.DATABASE_URL, {
+if (process.env.NODE_ENV === 'production') {
+  database = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
     define: {
       underscored: true,
@@ -14,17 +13,12 @@ if (process.env.NODE_ENV === "production") {
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false
-      }
-    }
-  }
-)
+        rejectUnauthorized: false,
+      },
+    },
+  });
 } else {
-database = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASS,
-  {
+  database = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
     dialect: 'postgres',
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
@@ -33,6 +27,5 @@ database = new Sequelize(
       timestamps: false,
     },
     timezone: 'Europe/Moscow',
-  },
-);
+  });
 }
